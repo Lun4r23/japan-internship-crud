@@ -1,9 +1,12 @@
 <?php
 
-include_once './config/core.php';
+include_once './layout/header.php';
+header('Access-Control-Allow-Origin: http://localhost:3000');
+
+
 
 $connect = mysqli_connect("localhost", "root", "", "internship");
-$sql = "SELECT * FROM users_information ORDER BY country DESC";
+$sql = "SELECT * FROM intern_information ORDER BY id DESC";
 $result = mysqli_query($connect, $sql);
 $json_array = array();
 

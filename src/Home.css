@@ -24,23 +24,23 @@ body{margin-top:20px;
         margin-top: 10px
     }
     
-    .search-result-item {
+    .search-result-item .intern-result-item {
         padding: 20px;
         background-color: #fff;
         border-radius: 4px
     }
     
-    .search-result-item:after,
-    .search-result-item:before {
+    .search-result-item:after .intern-result-item:after,
+    .search-result-item:before .intern-result-item:after {
         content: " ";
         display: table
     }
     
-    .search-result-item:after {
+    .search-result-item:after .intern-result-item:after {
         clear: both
     }
     
-    .search-result-item .image-link {
+    .search-result-item .intern-result-item .image-link {
         display: block;
         overflow: hidden;
         border-top-left-radius: 4px;
@@ -48,7 +48,7 @@ body{margin-top:20px;
     }
     
     @media (min-width:768px) {
-        .search-result-item .image-link {
+        .search-result-item .intern-result-item .image-link {
             display: inline-block;
             margin: -20px 0 -20px -20px;
             float: left;
@@ -57,45 +57,46 @@ body{margin-top:20px;
     }
     
     @media (max-width:767px) {
-        .search-result-item .image-link {
+        .search-result-item .intern-result-item .image-link {
             max-height: 200px
         }
     }
     
-    .search-result-item .image {
+    .search-result-item .intern-result-item .image {
         max-width: 100%
     }
     
-    .search-result-item .info {
+    .search-result-item .intern-result-item .info {
         margin-top: 2px;
         font-size: 12px;
         color: #999
     }
     
-    .search-result-item .description {
+    .search-result-item .intern-result-item .description {
         font-size: 13px
     }
     
-    .search-result-item+.search-result-item {
+    .search-result-item+.search-result-item .intern-result-item+.intern-result-item {
         margin-top: 20px
     }
     
     @media (min-width:768px) {
-        .search-result-item-body {
+        .search-result-item-body .intern-result-item-body {
             margin-left: 200px
         }
     }
     
-    .search-result-item-heading {
+    
+    .search-result-item-heading .intern-result-item-heading {
         font-weight: 400
     }
     
-    .search-result-item-heading>a {
+    .search-result-item-heading>a .intern-result-item-heading>a {
         color: #555
     }
     
     @media (min-width:768px) {
-        .search-result-item-heading {
+        .search-result-item-heading .intern-result-item-heading{
             margin: 0
         }
     }
