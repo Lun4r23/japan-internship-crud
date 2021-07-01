@@ -16,12 +16,35 @@ class Home extends Component {
         super();
         this.state={
             search:null,
-            data: []
+            data: [],
+            items: []
         }
     }
 
+    componentDidMount() {
+        fetch("http://localhost/phpmyadmin/sql.php?server=1&db=internship&table=users")
+        .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                items: result,
+              });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+      }
+    
     search(){
-        fetch('http://localhost/internship/api/search.php', {
+        fetch('http://localhost/japan-internship-crud/front/api/search.php', {
           method: "POST",
           body:JSON.stringify(this.state)
         }).then((response)=>{
@@ -35,6 +58,7 @@ class Home extends Component {
       }
 
     render(){
+        console.log(this.state.items);
         return (
             <>
                 <div>
