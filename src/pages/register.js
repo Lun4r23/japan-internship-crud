@@ -36,7 +36,7 @@ class Register extends Component {
       }
 
       register(){
-        fetch('http://localhost/internship/api/create_user.php', {
+        fetch('http://localhost/japan-internship-crud/api/create_user.php', {
           method: "POST",
           body:JSON.stringify(this.state)
         }).then((response)=>{
@@ -60,7 +60,7 @@ class Register extends Component {
                     <div>
                         <input type="text" onChange={(event)=>{this.setState({email:event.target.value})}} />
                         <input type="password" onChange={(event)=>{this.setState({password:event.target.value})}} />
-                        <button onClick={()=>{this.register()}}>register</button>      
+                        <button onClick={()=>{this.register()}}>register</button>
                     </div>
                     :
                     <Redirect to="/login" />

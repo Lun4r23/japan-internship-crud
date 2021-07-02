@@ -1,7 +1,9 @@
 <?php
 include_once 'layout/header.php';
 include_once 'objects/user.php';
- 
+
+header('Access-Control-Allow-Origin: http://localhost:3000');
+
 // get database connection
 $database = new Database();
 $db = $database->getConnection();

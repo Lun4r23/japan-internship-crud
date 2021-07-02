@@ -35,7 +35,7 @@ class Login extends Component {
       }
     
       login(){
-        fetch('http://localhost/internship/api/login.php', {
+        fetch('http://localhost/japan-internship-crud/api/login.php', {
           method: "POST",
           body:JSON.stringify(this.state)
         }).then((response)=>{
@@ -60,7 +60,6 @@ class Login extends Component {
                     <div>
                         <input type="text" onChange={(event)=>{this.setState({email:event.target.value})}} />
                         <input type="password" onChange={(event)=>{this.setState({password:event.target.value})}} />
-                        <button onClick={()=>{this.login()}}>Login</button>      
                     </div>
                     :
                     <Redirect to="/profile" />

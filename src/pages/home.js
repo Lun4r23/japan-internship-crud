@@ -17,7 +17,8 @@ class Home extends Component {
         this.state={
             search:null,
             data: [],
-            items: []
+            items: [],
+            isPressed:false
         }
     }
 
@@ -52,7 +53,8 @@ class Home extends Component {
           response.json().then((result)=>{
             console.warn("result", result);
             this.setState({
-                data: result
+                data: result,
+                isPressed:true
               })
           })
         })
@@ -87,8 +89,8 @@ class Home extends Component {
                     </div>
                     <div className="col-md-9 col-md-pull-3">
                       <p className="search-results-count">About 94 700 000 (0.39 sec.) results</p>
-                      {/* {Home.search === true ?
-                        <> */}
+                      {this.state.isPressed === true ?
+                        <>
                           {this.state.data.map((object, index) => (
                             <section key={index} className="search-result-item">
                               <a className="image-link" href="#"><img className="image" src="/images/{object.profileimage}" />
@@ -108,9 +110,9 @@ class Home extends Component {
                               </div>
                             </section>
                           ))}
-                        {/* </>
+                        </>
                         : 
-                          <> */}
+                          <>
                             {this.state.items.map((item) => (
                               <section key={item.id} className="intern-result-item">
                                 <a className="image-link" href="#"><img className="image" src="/images/{object.profileimage}" />
@@ -123,15 +125,15 @@ class Home extends Component {
                                       <p className="description">{item.profile_description}</p>
                                     </div>
                                     <div className="col-sm-3 text-align-center">
-                                      <p className="value3 mt-sm">$2, 400</p>
+                                      <p className="value3 mt-sm">${item.pay}</p>
                                       <p className="fs-mini text-muted">PER MONTH</p><a className="btn btn-info btn-sm" href="#">Learn More</a>
                                     </div>
                                   </div>
                                 </div>
                               </section>
                             ))}
-                          {/* </>
-                        } */}
+                          </>
+                        }
                       <div className="text-align-center">
                         <ul className="pagination pagination-sm">
                           <li className="disabled"><a href="#">Prev</a>
