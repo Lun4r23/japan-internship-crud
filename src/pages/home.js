@@ -22,12 +22,13 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost/phpmyadmin/sql.php?server=1&db=internship&table=users")
+        fetch("http://localhost/japan-internship-crud/api/api_intern.php")
         .then(res => res.json())
           .then(
             (result) => {
               this.setState({
                 isLoaded: true,
+                // header(Access-Control-Allow-Origin: http://localhost:3000),
                 items: result,
               });
             },
