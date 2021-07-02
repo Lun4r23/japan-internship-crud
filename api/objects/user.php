@@ -24,6 +24,7 @@ class User{
                 SET
                     email = :email,
                     password = :password,
+                    role = :role,
                     created = NOW()";
     
         // prepare the query
@@ -35,6 +36,7 @@ class User{
     
         // bind the values
         $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':role', $this->role);
     
         // hash the password before saving to database
         $password_hash = password_hash($this->password, PASSWORD_BCRYPT);

@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: http://localhost:3000');
 
 
 $connect = mysqli_connect("localhost", "root", "", "internship");
-$sql = "SELECT * FROM intern_information ORDER BY id DESC";
+$sql = "SELECT * FROM user_information ORDER BY id DESC";
 $result = mysqli_query($connect, $sql);
 $json_array = array();
 

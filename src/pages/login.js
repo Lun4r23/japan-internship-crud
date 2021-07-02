@@ -60,6 +60,7 @@ class Login extends Component {
                     <div>
                         <input type="text" onChange={(event)=>{this.setState({email:event.target.value})}} />
                         <input type="password" onChange={(event)=>{this.setState({password:event.target.value})}} />
+                        <button onClick={()=>{this.login()}}>Login</button>      
                     </div>
                     :
                     <Redirect to="/profile" />

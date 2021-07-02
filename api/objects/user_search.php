@@ -4,7 +4,7 @@ class UserSearch{
  
     // database connection and table name
     private $conn;
-    private $table_name = "users_informations";
+    private $table_name = "user_information";
  
     // object properties
     public $search;
@@ -18,8 +18,8 @@ class UserSearch{
     // check if given email exist in the database
     function search(){
         // query to check if email exists
-        $query = "SELECT * FROM users_informations
-        WHERE study_tags LIKE :search ";
+        $query = "SELECT * FROM user_information
+        WHERE firstname LIKE :search ";
     
         // prepare the query
         $stmt = $this->conn->prepare( $query );

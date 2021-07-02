@@ -16,7 +16,7 @@ class Home extends Component {
         super();
         this.state={
             search:null,
-            data: [],
+            sData: [],
             items: [],
             isPressed:false
         }
@@ -44,6 +44,7 @@ class Home extends Component {
             }
           )
       }
+      
     
     search(){
         fetch('http://localhost/japan-internship-crud/api/search.php', {
@@ -53,7 +54,7 @@ class Home extends Component {
           response.json().then((result)=>{
             console.warn("result", result);
             this.setState({
-                data: result,
+                sData: result,
                 isPressed:true
               })
           })
@@ -91,16 +92,16 @@ class Home extends Component {
                       <p className="search-results-count">About 94 700 000 (0.39 sec.) results</p>
                       {this.state.isPressed === true ?
                         <>
-                          {this.state.data.map((object, index) => (
-                            <section key={index} className="search-result-item">
+                          {this.state.sData.map((data) => (
+                            <section key={data.id} className="search-result-item">
                               <a className="image-link" href="#"><img className="image" src="/images/{object.profileimage}" />
                               </a>
                               <div className="search-result-item-body">
                                 <div className="row">
                                   <div className="col-sm-9">
-                                    <h4 className="search-result-item-heading"><a href="#">{object.firstname} {object.lastname}</a></h4>
-                                    <p className="info">{object.address} {object.address_nr}, {object.place} - {object.country}</p>
-                                    <p className="description">{object.profile_description}</p>
+                                    <h4 className="search-result-item-heading"><a href="#">{data.firstname} {data.lastname}</a></h4>
+                                    <p className="info">{data.address} {data.address_nr}, {data.place} - {data.country}</p>
+                                    <p className="description">{data.profile_description}</p>
                                   </div>
                                   <div className="col-sm-3 text-align-center">
                                     <p className="value3 mt-sm">$2, 400</p>
